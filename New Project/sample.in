@@ -1,0 +1,21 @@
+//IN : 1
+
+   LRUCache lrucache(3) ;
+   
+   lrucache.set(2,100);
+   lrucache.set(3,140);
+   lrucache.set(6,1440);
+   lrucache.printList();
+   lrucache.set(7,140);
+   lrucache.printList();
+   lrucache.get(3);
+   lrucache.set(6,121);
+   lrucache.printList();
+   lrucache.set(9,140);
+   lrucache.printList();
+   lrucache.set(19,140);
+   lrucache.printList();
+   cout<<endl;
+   
+   
+//IN : 2   
