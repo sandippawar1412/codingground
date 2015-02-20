@@ -1,0 +1,76 @@
+LRU Cache Implementation [51029102]
+--------------------------------
+Platform   : Linux, gcc
+To compile : # g++ -std=c++11 -o main *.cpp
+To execute : # ./main
+
+------------------------------------------------
+.h file contains the declarations only.
+DCLL : DoublyCircularLinkedList; this is the implementation for the DCLL with class name "DoubleCircularLinkedList"
+       .h file has the specification of node.
+LRUCache : file contains the implementation of cache with class name "LRUCache"
+
+All the functions mentioned in problem statement are implemented.
+
+main.cpp : file contains the implementation of basic scanner.
+scanner provides different commands. Executable continuously listens to command mentioned and does the required 
+action. Scanner stops only after entering command "END".
+
+--------------------------------------------------
+List of Commands(lcmd command displays this list) - 
+ CLEAR             clears cache and list; cache size not altered                                                                                                                                                                                 
+ PRINT_CACHE       prints the current cache status; first pair is front entry of queue and last pair is rare entry                                                                                                                                                                      
+ SIZE <size>       changes default cache size from 10 to "size"                                                                                                                                                                        
+ GET <key>         displays corresponding value                                                                                                                                                                           
+ SET <key> <value> entry to cache, if full uses LRU as entry to be deleted                                                                                                                                                                         
+ DELETE <key>      deletes the key entry if present else does nothing                                                                                                                                                                       
+ HAS_KEY <key>     checks if key is present or not in cache                                                                                                                                                                      
+ END               terminates scanner execution     
+
+** these all commands takes care of all functions mentioned in problem statement related to LRUCache class.
+Funtions related to Doubly Circular Linked List are invoked internally.
+
+------------------------------------------------------
+Implementation of LRUCache is generic, user can create any type(built in) of cache :
+Ex:
+    LRUCache<int, float> lrucache;  or
+    LRUCache<float, float> lrucache;  or
+    LRUCache<int, string> lrucache;  or
+    LRUCache<string, float> lrucache;
+    
+** Though LRUCache is generic, it will throw an error if used with any user defined type. This is because 
+use of those types requires some function and operator overloading.
+
+---------------------------------------------------------
+LRUCache<int, float> lrucache ;
+
+Testcase :
+#./main
+Enter "lcmd" to get the list of commands. All commands are case sensitive.                                                                                                                
+                                                                                                                                                                                          
+SIZE 2                                                                                                                                                                                    
+SET 23 23.43453                                                                                                                                                                           
+PRINT_CACHE                                                                                                                                                                               
+Cache Size = 2                                                                                                                                                                            
+Node Count = 1                                                                                                                                                                            
+23:23.4345                                                                                                                                                                                
+SET 45 45.55                                                                                                                                                                              
+PRINT_CACHE                                                                                                                                                                               
+Cache Size = 2                                                                                                                                                                            
+Node Count = 2                                                                                                                                                                            
+23:23.4345 <--> 45:45.55                                                                                                                                                                  
+GET 23                                                                                                                                                                                    
+23.4345                                                                                                                                                                                   
+PRINT_CACHE                                                                                                                                                                               
+Cache Size = 2                                                                                                                                                                            
+Node Count = 2                                                                                                                                                                            
+45:45.55 <--> 23:23.4345                                                                                                                                                                  
+DELETE 23                                                                                                                                                                                 
+PRINT_CACHE                                                                                                                                                                               
+Cache Size = 2                                                                                                                                                                            
+Node Count = 1                                                                                                                                                                            
+45:45.55
+PRIN_CACH
+Wrong Input. Enter lcmd to get List of commands                                                                                                                                           
+END                                                                                                                                                                                       
+Program is Exiting               
